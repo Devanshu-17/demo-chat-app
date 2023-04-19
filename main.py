@@ -5,6 +5,18 @@ import requests
 # Set up MediaWiki API endpoint
 wiki_url = "https://en.wikipedia.org/w/api.php"
 
+st.sidebar.title("Tourist Chatbot")
+st.sidebar.markdown(
+    """
+    This is a simple chatbot that can answer questions about the weather and give you Wikipedia results.
+
+    The weather data is provided by [OpenWeather](https://openweathermap.org/).
+
+    The Wikipedia results are provided by [MediaWiki](https://www.mediawiki.org/wiki/API:Main_page).
+
+    """
+)
+st.sidebar.header("Note: To get the weather for a city, you need to specifically ask [Temperature of <city name>]")
 
 def get_wiki_results(query):
     # Set parameters for MediaWiki API request
