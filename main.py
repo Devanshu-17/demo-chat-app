@@ -5,10 +5,10 @@ import requests
 # Set up MediaWiki API endpoint
 wiki_url = "https://en.wikipedia.org/w/api.php"
 
-st.sidebar.title("Tourist Chatbot")
+st.sidebar.title("WanderChat")
 st.sidebar.markdown(
     """
-    This is a simple chatbot that can answer questions about the weather and give you Wikipedia results.
+    This is a simple chatbot that can answer questions about the weather and give you latest Wikipedia results.
 
     The weather data is provided by [OpenWeather](https://openweathermap.org/).
 
@@ -16,7 +16,6 @@ st.sidebar.markdown(
 
     """
 )
-st.sidebar.header("Note: To get the weather for a city, you need to specifically ask [Temperature of <city name>]")
 
 def get_wiki_results(query):
     # Set parameters for MediaWiki API request
@@ -68,7 +67,7 @@ def get_weather(city_name):
 
 
 # Set up Streamlit app
-st.title("Tourist Chatbot")
+st.title("WanderChat")
 
 # Initialize chat widget
 message("Hi! I'm your Tourist Chatbot. Ask me anything!")
@@ -88,3 +87,19 @@ if user_input:
                 message("- " + result["title"], is_user=False)
         else:
             message("Sorry, I couldn't find any results.", is_user=False)
+
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://raw.githubusercontent.com/bedimcode/responsive-travel-website/main/assets/img/home1.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url()
